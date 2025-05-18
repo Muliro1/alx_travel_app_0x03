@@ -23,11 +23,11 @@ from drf_yasg import openapi
 # Schema view setup
 schema_view = get_schema_view(
     openapi.Info(
-        title="Your API",
+        title="Alx Travel App",
         default_version='v1',
         description="API Documentation",
         terms_of_service="https://yourapp.com/terms/",
-        contact=openapi.Contact(email="contact@yourapp.com"),
+        contact=openapi.Contact(email="mulirokhaemba@gmail.com"),
         public=True,
 )
 )
