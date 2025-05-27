@@ -139,6 +139,6 @@ DATABASES = {
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASSWORD'),
         'HOST': env('DB_HOST', default='localhost'),
-        #'PORT': env.int('DB_PORT', default=3306),
+        'PORT': '3306',
     }
 }
