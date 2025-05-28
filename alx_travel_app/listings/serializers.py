@@ -2,14 +2,13 @@ from rest_framework import serializers
 from .models import Listing, Booking
 from django.contrib.auth.models import User
 
-'''class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
-        '''
 
 class ListingSerializer(serializers.ModelSerializer):
-    #host = UserSerializer(read_only=True)
+    host = UserSerializer(read_only=True)
     
     class Meta:
         model = Listing
@@ -17,7 +16,7 @@ class ListingSerializer(serializers.ModelSerializer):
         read_only_fields = ['host', 'created_at', 'updated_at']
 
 class BookingSerializer(serializers.ModelSerializer):
-    #guest = UserSerializer(read_only=True)
+    guest = UserSerializer(read_only=True)
     listing = ListingSerializer(read_only=True)
     listing_id = serializers.PrimaryKeyRelatedField(
         queryset=Listing.objects.all(),
