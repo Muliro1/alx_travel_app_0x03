@@ -5,19 +5,14 @@ from django.contrib.auth.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name']
+        fields = '__all__'
 
 class ListingSerializer(serializers.ModelSerializer):
     host = UserSerializer(read_only=True)
     
     class Meta:
         model = Listing
-        fields = [
-            'id', 'title', 'description', 'address', 'city', 'state',
-            'zipcode', 'price_per_night', 'bedrooms', 'bathrooms',
-            'max_guests', 'property_type', 'host', 'is_available',
-            'created_at', 'updated_at'
-        ]
+        fields = '__all__'
         read_only_fields = ['host', 'created_at', 'updated_at']
 
 class BookingSerializer(serializers.ModelSerializer):
@@ -31,11 +26,7 @@ class BookingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Booking
-        fields = [
-            'id', 'listing', 'listing_id', 'guest', 'check_in',
-            'check_out', 'total_price', 'status', 'created_at',
-            'updated_at'
-        ]
+        fields = '__all__'
         read_only_fields = ['guest', 'total_price', 'status', 'created_at', 'updated_at']
 
     def validate(self, data):
