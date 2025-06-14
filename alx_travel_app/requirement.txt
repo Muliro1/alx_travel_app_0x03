@@ -1,1 +1,6 @@
-alx_travel_app
+Django>=4.2.0
+djangorestframework>=3.14.0
+django-filter>=23.2
+drf-yasg>=1.21.7
+Pillow>=10.0.0
+python-dotenv>=1.0.0
