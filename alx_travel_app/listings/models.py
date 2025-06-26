@@ -1,6 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from uuid import uuid4
+
+class ChapaStatus:
+    CREATED = 'created'
+    PENDING = 'pending'
+    COMPLETED = 'completed'
+    FAILED = 'failed'
+    CANCELLED = 'cancelled'
+    choices = [
+        (CREATED, 'Created'),
+        (PENDING, 'Pending'),
+        (COMPLETED, 'Completed'),
+        (FAILED, 'Failed'),
+        (CANCELLED, 'Cancelled'),
+    ]
 
 class Listing(models.Model):
     PROPERTY_TYPES = [
@@ -104,6 +119,9 @@ class ChapaTransactionMixin(models.Model):
 
     response_dump = models.JSONField(default=dict, blank=True)  # incase the response is valuable in the future
     checkout_url = models.URLField(null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True

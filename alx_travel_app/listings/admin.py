@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Listing, Booking, Review
+from .models import Listing, Booking, Review, Payment, ChapaTransaction
 
 @admin.register(Listing)
 class ListingAdmin(admin.ModelAdmin):
@@ -20,3 +20,15 @@ class ReviewAdmin(admin.ModelAdmin):
     list_display = ('booking', 'rating', 'created_at')
     list_filter = ('rating', 'created_at')
     search_fields = ('comment', 'booking__listing__title', 'booking__guest__username')
+
+@admin.register(Payment)
+class PaymentAdmin(admin.ModelAdmin):
+    list_display = ('booking', 'amount', 'status', 'transaction_id', 'created_at')
+    list_filter = ('status', 'created_at')
+    search_fields = ('booking__guest__username', 'transaction_id')
+
+@admin.register(ChapaTransaction)
+class ChapaTransactionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'email', 'amount', 'currency', 'status', 'created_at')
+    list_filter = ('status', 'currency')
+    search_fields = ('email', 'first_name', 'last_name')
