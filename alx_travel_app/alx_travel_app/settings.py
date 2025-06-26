@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'listings',
+    'django_chapa',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,9 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
+CHAPA_SECRET = os.environ.get('CHAPA_SECRET')
+CHAPA_API_URL = os.environ.get('CHAPA_API_URL', 'https://api.chapa.co/v1/transaction/initialize')
+CHAPA_WEBHOOK_URL = os.environ.get('CHAPA_WEBHOOK_URL')
+CHAPA_API_VERSION = os.environ.get('CHAPA_API_VERSION', 'v1')
+CHAPA_TRANSACTION_MODEL = 'listings.ChapaTransaction'
