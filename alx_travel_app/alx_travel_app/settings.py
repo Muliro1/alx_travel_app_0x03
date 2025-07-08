@@ -149,3 +149,20 @@ CHAPA_API_URL = os.environ.get('CHAPA_API_URL', 'https://api.chapa.co/v1/transac
 CHAPA_WEBHOOK_URL = os.environ.get('CHAPA_WEBHOOK_URL')
 CHAPA_API_VERSION = os.environ.get('CHAPA_API_VERSION', 'v1')
 CHAPA_TRANSACTION_MODEL = 'listings.ChapaTransaction'
+
+# Celery Configuration
+CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='amqp://guest:guest@localhost//')
+CELERY_RESULT_BACKEND = env('CELERY_RESULT_BACKEND', default='rpc://')
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
+
+# Email Backend Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST', default='smtp.gmail.com')
+EMAIL_PORT = env('EMAIL_PORT', default=587)
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='your_email@example.com')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='your_password')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
