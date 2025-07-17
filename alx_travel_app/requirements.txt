@@ -40,8 +40,6 @@ drf-yasg==1.21.10
 exceptiongroup==1.2.2
 groq==0.6.0
 gunicorn==23.0.0
-gyp==0.1
-h11==0.14.0
 httpcore==1.0.5
 httplib2==0.20.2
 httpx==0.27.0
