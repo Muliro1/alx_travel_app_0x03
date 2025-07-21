@@ -95,7 +95,6 @@ social-auth-app-django==5.4.1
 social-auth-core==4.5.4
 sqlparse==0.5.0
 stripe==10.4.0
-systemd-python==234
 typing_extensions==4.12.2
 tzdata==2025.2
 ufw==0.36.1
