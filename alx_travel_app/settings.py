@@ -84,12 +84,6 @@ WSGI_APPLICATION = 'alx_travel_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
@@ -135,12 +129,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASSWORD'),
         'HOST': env('DB_HOST', default='localhost'),
-        'PORT': '3306',
+        'PORT': env('DB_PORT', default='5432'),
     }
 }
 
