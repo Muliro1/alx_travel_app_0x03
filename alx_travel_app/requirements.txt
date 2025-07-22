@@ -19,7 +19,6 @@ click-repl==0.3.0
 cmdtest==0.1.1
 crispy-bootstrap4==2024.1
 cryptography==42.0.8
-dbus-python==1.2.18
 distro==1.7.0
 Django==4.2.23
 django-appconf==1.0.6
